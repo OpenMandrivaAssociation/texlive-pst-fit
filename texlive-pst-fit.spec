@@ -6,7 +6,7 @@
 # catalog-version 0.01
 Name:		texlive-pst-fit
 Version:	0.01
-Release:	6
+Release:	7
 Summary:	Macros for curve fitting
 Group:		Publishing
 URL:		http://www.ctan.org/tex-archive/graphics/pstricks/contrib/pst-fit
