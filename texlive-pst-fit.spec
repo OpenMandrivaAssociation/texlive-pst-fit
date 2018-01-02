@@ -1,19 +1,12 @@
-# revision 28155
-# category Package
-# catalog-ctan /graphics/pstricks/contrib/pst-fit
-# catalog-date 2012-11-02 19:53:22 +0100
-# catalog-license lppl
-# catalog-version 0.01
 Name:		texlive-pst-fit
-Version:	0.01
-Release:	9
+Version:	0.02
+Release:	1
 Summary:	Macros for curve fitting
 Group:		Publishing
 URL:		http://www.ctan.org/tex-archive/graphics/pstricks/contrib/pst-fit
 License:	LPPL
 Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/pst-fit.tar.xz
 Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/pst-fit.doc.tar.xz
-Source2:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/pst-fit.source.tar.xz
 BuildArch:	noarch
 BuildRequires:	texlive-tlpkg
 Requires(pre):	texlive-tlpkg
@@ -35,23 +28,16 @@ Polynomial.
 
 #-----------------------------------------------------------------------
 %files
-%{_texmfdistdir}/tex/generic/pst-fit/pst-fit.tex
-%{_texmfdistdir}/tex/latex/pst-fit/pst-fit.sty
-%doc %{_texmfdistdir}/doc/generic/pst-fit/Changes
-%doc %{_texmfdistdir}/doc/generic/pst-fit/README
-%doc %{_texmfdistdir}/doc/generic/pst-fit/pst-fit-doc.bib
-%doc %{_texmfdistdir}/doc/generic/pst-fit/pst-fit-doc.data
-%doc %{_texmfdistdir}/doc/generic/pst-fit/pst-fit-doc.pdf
-%doc %{_texmfdistdir}/doc/generic/pst-fit/pst-fit-doc.tex
-#- source
-%doc %{_texmfdistdir}/source/generic/pst-fit/Makefile
+%{_texmfdistdir}/tex/generic/pst-fit
+%{_texmfdistdir}/tex/latex/pst-fit
+%doc %{_texmfdistdir}/doc/generic/pst-fit
 
 #-----------------------------------------------------------------------
 %prep
-%setup -c -a0 -a1 -a2
+%setup -c -a0 -a1
 
 %build
 
 %install
 mkdir -p %{buildroot}%{_texmfdistdir}
-cp -fpar tex doc source %{buildroot}%{_texmfdistdir}
+cp -fpar tex doc %{buildroot}%{_texmfdistdir}
