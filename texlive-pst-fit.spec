@@ -1,6 +1,6 @@
 Name:		texlive-pst-fit
 Version:	45109
-Release:	1
+Release:	2
 Summary:	Macros for curve fitting
 Group:		Publishing
 URL:		http://www.ctan.org/tex-archive/graphics/pstricks/contrib/pst-fit
