@@ -1,43 +1,22 @@
-Name:		texlive-pst-fit
-Version:	70686
-Release:	1
+%global tl_name pst-fit
+%global tl_revision 70686
+
+Name:		texlive-%{tl_name}
+Epoch:		1
+Version:	0.03
+Release:	%{tl_revision}.1
 Summary:	Macros for curve fitting
 Group:		Publishing
 URL:		https://www.ctan.org/tex-archive/graphics/pstricks/contrib/pst-fit
-License:	LPPL
-Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/pst-fit.r%{version}.tar.xz
-Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/pst-fit.doc.r%{version}.tar.xz
+License:	lppl
+Source0:	https://mirrors.ctan.org/systems/texlive/tlnet/archive/pst-fit.r%{tl_revision}.tar.xz
+Source1:	https://mirrors.ctan.org/systems/texlive/tlnet/archive/pst-fit.doc.r%{tl_revision}.tar.xz
 BuildArch:	noarch
-BuildRequires:	texlive-tlpkg
-Requires(pre):	texlive-tlpkg
-Requires(post):	texlive-kpathsea
+BuildSystem:	texlive
+Provides:	texlive(%{tl_name}) = %{tl_revision}
 
 %description
-The package provides fitting of: 1. Linear Functions; 2. Power
-Functions; 3. exp Function; 4. Log_{10} and Log_e functions; 5.
-Recip; 6. Kings Law data; 7. Gaussian; and 8. 4th order
-Polynomial.
+The package uses PSTricks to fit curves to: Linear Functions; Power
+Functions; exp Function; Log_{10} and Log_e functions; Recip; Kings Law
+data; Gaussian; and 4th order Polynomial
 
-%post
-%{_sbindir}/texlive.post
-
-%postun
-if [ $1 -eq 0 ]; then
-	%{_sbindir}/texlive.post
-fi
-
-#-----------------------------------------------------------------------
-%files
-%{_texmfdistdir}/tex/generic/pst-fit
-%{_texmfdistdir}/tex/latex/pst-fit
-%doc %{_texmfdistdir}/doc/generic/pst-fit
-
-#-----------------------------------------------------------------------
-%prep
-%autosetup -p1 -c -a1
-
-%build
-
-%install
-mkdir -p %{buildroot}%{_texmfdistdir}
-cp -fpar tex doc %{buildroot}%{_texmfdistdir}
